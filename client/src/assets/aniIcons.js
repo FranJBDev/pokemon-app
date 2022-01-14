@@ -1,0 +1,1 @@
+const url = 'https://play.pokemonshowdown.com/sprites/ani-shiny/'

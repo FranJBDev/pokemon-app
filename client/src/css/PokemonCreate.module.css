@@ -1,0 +1,213 @@
+
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+
+.pagina{
+    background-image: url('../../images/fondo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagina button{
+    background-color: rgba(233, 230, 38, 0.932);
+    border: 2px solid rgb(231, 216, 1);
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    margin-left: 0%;
+}
+
+.img{
+    margin-right: 15%;
+    margin-top: 3%;
+}
+
+.back{
+    position: fixed;
+    left: 8%;
+    top: 4%;
+}
+
+.container{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5% rgba(0, 0, 0, 0.3);
+    width: 38rem;
+    max-width: 50%;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    right: 0%;
+    padding-bottom: 4%;
+    position: relative;
+    margin-bottom: 0.5%;
+    margin-top: 0.5%;
+    margin-right: 0.4%;
+}
+
+.header{
+    background-color: #f7f7f7;
+    padding: 20px 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.header h2{
+    margin: 0;
+}
+
+.formdiv{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.formdiv label{
+    display: flex;
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+
+.formdiv input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 50%;
+    padding: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    margin-left: 2vw;
+}
+
+
+.formdiv i {
+    position: absolute;
+    top: 40px;
+    left: 54%
+}
+
+.formdiv p {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    font-size: 14px;
+    color: #e74c3c;
+}
+
+.container button{
+    background-color: rgb(23, 117, 241);
+    border: 2px solid rgb(32, 142, 245);
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    width: 50%;
+    cursor: pointer;
+    margin-top: 8%;
+    margin-left: 7%;
+}
+
+.container .previous{
+    background-color: rgb(181, 225, 228);
+    border: 2px solid rgb(136, 209, 214);
+    color: rgb(0, 0, 0);
+    width: 40%;
+    margin-top: 0%;
+}
+
+.container .create{
+    width: 40%;
+    color: rgb(218, 218, 218);
+    margin-top: 0%;
+    transition: all 0.4s ease; 
+}
+.container .create:hover{
+    background-color: rgb(23, 143, 241);
+    border: 2px solid rgb(39, 125, 223);
+    color: rgb(255, 255, 255); 
+}
+
+.choosetypes{
+    margin-top: 2%;
+    margin-left: 4%;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.typeserror{
+    position: absolute;
+    font-size: 15px;
+    display: flex;
+    bottom: -8%;
+    left: 4%;
+    color: #e74c3c
+}
+
+.containertypes{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-start;
+    margin-left: 4%;
+    margin-bottom: 12%;
+    margin-top: 4%;
+}
+
+.containertypes label{
+    cursor: pointer;
+    margin-bottom: 4%;
+}
+
+.containertypes label input[type='checkbox']{
+    display: none;
+}
+
+.containertypes label:hover .circle {
+    filter: grayscale(0%) opacity(100%);
+}
+
+.containertypes label input[type='checkbox']:checked ~ .circle {
+    filter: grayscale(0%) opacity(95%);
+}
+
+
+.bytype{
+    display: flex;
+    align-items: center;
+    
+}
+
+.circle{
+    filter: grayscale(100%) opacity(50%) ;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+
+/* Arrows from input number*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
