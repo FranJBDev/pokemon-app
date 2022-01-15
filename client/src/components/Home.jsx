@@ -95,8 +95,7 @@ export default function Home() {
                         <span>{currP[0]} not found</span>
                     </div>
                 :
-                <div><img src={loading} alt="Loading.." width='250px' />
-                    <p>Loading...</p>
+                <div className={style.loading}><img src={loading} alt="Loading.." width='250px' />
                 </div>
             }
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-// import style from '../css/Pages.module.css'
+import style from '../css/Pages.module.css'
 import { useDispatch } from 'react-redux';
 import { setCurrentPage } from '../redux/actions'
 
@@ -12,12 +12,11 @@ export default function Paginado({ itemsPerPage, allPokemons, page }) {
     }
 
     return (
-        <nav><ul>
+        <nav><ul className={style.row}>
             {pageNumbers && pageNumbers.map(number => (<li key={number} style={{ listStyle: 'none' }}>
-                <button style={page === number ? { color: "white" } : {}} onClick={() => dispatch(setCurrentPage(number))}>{number}</button>
+                <button className={style.button} style={page === number ? { color: "red" } : {}} onClick={() => dispatch(setCurrentPage(number))}>{number}</button>
             </li>))}
         </ul>
         </nav>
     )
-
 }

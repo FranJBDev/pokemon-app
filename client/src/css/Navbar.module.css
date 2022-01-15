@@ -1,14 +1,3 @@
-.nav{
-    height: 10vh;
-    background-color: #36a12d;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
 .posA{
     position: absolute; 
     top: 5%;
@@ -25,52 +14,3 @@
     left: 92%;
 }
 
-/* Button Style */
-.button {
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    color: rgb(5, 0, 0);
-    font-size: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: sans-serif;
-    box-sizing: border-box;
-    background: linear-gradient(90deg, yellow, orange, red, violet, purple, blue, yellow);
-    background-size: 400%;
-    border-radius: 30px;
-    z-index: 1;
-  }
-  .button:hover {
-    animation: animate 8s linear infinite;
-  }
-  @keyframes animate {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 400%;
-    }
-  }
-  .button:before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    z-index: -1;
-    background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
-    background-size: 400%;
-    border-radius: 40px;
-    opacity: 0;
-    transition: 0.5%;
-  }
-  .button:hover:before {
-    filter: blur(20px);
-    opacity: 1;
-    animation: animate 8s linear infinite;
-  }
-  

@@ -13,7 +13,7 @@
   width: 320px;
   height: 250px;
   background: orange;
-  animation-duration: 2s;
+  animation-duration: .5s;
   animation-iteration-count: infinite;
   transform-origin: bottom;
   }
@@ -24,7 +24,7 @@
 }
 @keyframes bounce {
 0%   { transform: translateY(0); }
-50%  { transform: translateY(-100px); }
+50%  { transform: translateY(-50px); }
 100% { transform: translateY(0); }
 }
 

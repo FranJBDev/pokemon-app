@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import { useDispatch } from 'react-redux';
 import style from '../css/Navbar.module.css'
+import css from '../css/Button.module.css'
 import { reload } from '../redux/actions';
 import Pages from './Pages';
 
@@ -22,11 +23,11 @@ export default function Navbar() {
     return (
         <nav>
             <Link to='/'>
-                <button className={style.button + ' ' + style.posA} >Landing</button>
+                <button className={css.button + ' ' + style.posA} >Landing</button>
             </Link>
             <SearchBar />
-            <Link to="/pokemons" ><button className={style.button + ' ' + style.posB}>Create</button></Link>
-            <button className={style.button + ' ' + style.posC} onClick={e => { handleClick(e) }} >Reload</button>
+            <Link to="/pokemons" ><button className={css.button + ' ' + style.posB}>Create</button></Link>
+            <button className={css.button + ' ' + style.posC} onClick={e => { handleClick(e) }} >Reload</button>
 
             <Pages itemsPerPage={itemsPerPage}
                 allPokemons={allPokemons.length}
