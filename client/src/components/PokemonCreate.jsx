@@ -23,8 +23,7 @@ export default function PokemonCreate() {
 
     function handleChange(e) {
         setInput({
-            ...input,
-            [e.target.name]: e.target.value.replaceAll(/^\s+/g, "").replaceAll(/\s+/g, " ")
+            ...input, [e.target.name]: e.target.value.replaceAll(/^\s+/g, "").replaceAll(/\s+/g, " ")
         })
 
         setErrors(validate({

@@ -22,7 +22,7 @@ export default function Home() {
     const [orden, setOrden] = useState('')
     useSelector(s => s.order)
 
-    const currentPokemons = allPokemons.slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage)
+    const currP = allPokemons.slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage)
 
 
     const sortOpt = [
@@ -83,16 +83,16 @@ export default function Home() {
         </div>
 
         <div className={style.cards}>
-            {currentPokemons.length ?
-                typeof currentPokemons[0] === 'object' ?
-                    currentPokemons.map(el => {
+            {currP.length ?
+                typeof currP[0] === 'object' ?
+                    currP.map(el => {
                         return (<Link to={"/home/" + el.id} key={el.id}>
                             <Card props={el} />
                         </Link>)
                     }) :
                     <div>
                         <img src={noImage} alt="Pokemon not found" width='200px' />
-                        <span>{currentPokemons[0]} not found</span>
+                        <span>{currP[0]} not found</span>
                     </div>
                 :
                 <div><img src={loading} alt="Loading.." width='250px' />

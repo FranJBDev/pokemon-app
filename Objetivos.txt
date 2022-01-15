@@ -1,0 +1,97 @@
+Usar React, Redux, Node y Sequelize-Posgres.
+Aprender workflow de GIT
+Usar testing
+
+requerimientos 
+Node: 12.18.3 o mayor
+NPM: 6.14.16 o mayor
+
+[X] En api crear un archivo llamado: .env que tenga la siguiente forma:
+
+DB_USER=usuariodepostgres
+DB_PASSWORD=passwordDePostgres
+DB_HOST=localhost
+****************************************
+[X] Desde psql crea base de datos pokemon
+Base de datos: * Obligatorias
+[X] Pokemon con las siguientes propiedades:
+ID (Número de Pokemon) * : No puede ser un ID de un pokemon ya existente en la API pokeapi
+Nombre * name
+Vida - hp
+Fuerza- atack
+Defensa - defense
+Velocidad - speed
+Altura - height
+Peso - weight
+[X] Tipo con las siguientes propiedades:
+ID
+Nombre
+
+[X] Crear modelos Pokemon y Type con Relacion de muchos a muchos
+
+Diferenciar los pokes de api y los creados, no repetir id
+*****************************************************************
+
+Usar pokeapi:
+Únicos Endpoints/Flags que pueden utilizar
+GET https://pokeapi.co/api/v2/pokemon
+GET https://pokeapi.co/api/v2/pokemon/{id}
+GET https://pokeapi.co/api/v2/pokemon/{name}
+GET https://pokeapi.co/api/v2/type
+
+Buscar, filtrar, ordenar y crear pokemons
+
+NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados
+
+En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend
+
+No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
+
+Paginas:
+Landing: 
+[ ] Alguna imagen de fondo representativa al proyecto
+[ ] Botón para ingresar al home (Ruta principal)
+
+Home:
+[ ] Input de busqueda por nombre completo
+[ ] Area para mostrar pokemons desde GET /pokemons (usar subrequest de next, limitar a 40 pokemons) y mostrar:
+	imagen, nombre y tipos
+[ ] Botones/opciones para filtrar por tipo y por pokemon existente o creado por nosotros
+[ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los pokemons por orden alfabético y por fuerza
+
+[ ] Paginado para ir buscando y mostrando los siguientes pokemons, 12 pokemons por pagina.
+
+Detalle: 
+[ ] Campos imagen, nombre, tipos, id, estadisticas (vida, fuerza, defensa, velocidad, altura y peso.
+
+Creacion: 
+[ ] form controlado por js con los campos de detalle
+[ ] poder seleccionar agregar mas de un tipo
+[ ] Validar campos
+
+*********************************************************
+Backend
+SErver NOde/Express
+
+Rutas:
+[ ] GET /pokemons
+listar pokemons traidos de la api
+solo devolver los datso necesarios para la ruta ppal
+[ ] GET /pokemons/{idPOkemon}
+obtener detalle de un pokemon
+solo traer los datos de detalle
+Que funcione para pokemon existente y para creado
+[ ] GET /pokemons?name="..."
+Obtener el que coincida exactamente con el nombre pasado por query
+si no existe mostrar mensaje (en la pagina)
+[ ] GET /types
+obtener todos los tipos de pokemon posibles, guardarlos en la BD y usaarlos desde ahi
+
+Testing:
+ ] Al menos tener un componente del frontend con sus tests respectivos
+[ ] Al menos tener una ruta del backend con sus tests respectivos
+[ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+
+
+
+

@@ -12,16 +12,11 @@ export default function Paginado({ itemsPerPage, allPokemons, page }) {
     }
 
     return (
-        <nav>
-            <ul>
-                {
-                    pageNumbers && pageNumbers.map(number => (
-                        <li key={number} style={{ listStyle: 'none' }}>
-                            <button style={page === number ? { color: "white" } : {}} onClick={() => dispatch(setCurrentPage(number))}>{number}</button>
-                        </li>
-                    ))
-                }
-            </ul>
+        <nav><ul>
+            {pageNumbers && pageNumbers.map(number => (<li key={number} style={{ listStyle: 'none' }}>
+                <button style={page === number ? { color: "white" } : {}} onClick={() => dispatch(setCurrentPage(number))}>{number}</button>
+            </li>))}
+        </ul>
         </nav>
     )
 
