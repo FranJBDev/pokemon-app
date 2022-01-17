@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 .cards {
+    /* border-style: solid; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto; 
     grid-gap: 1rem;
-    margin-left: 0.5%;
-    padding-bottom: 2%; 
+    margin-left: 1%;
+    padding-bottom: 0%; 
     padding-top: 4%;  
 }
 
@@ -18,14 +19,16 @@
 
 .sortfilter select option{
     padding: 3%;
+    font-family: 'Mochiy Pop P One', sans-serif;  
 }
-/* 
+
 select {
     cursor: pointer;
     box-shadow: none;
     background: orange;
     width: 8%;
     height: 4%;
+    font-family: 'Mochiy Pop P One', sans-serif;  
     font-size: 0.8em;
     padding-top: 1em;
     padding-right: 1.26em;
@@ -35,7 +38,7 @@ select {
     border: none;
     outline: none;
     color: rgb(2, 0, 0);
-} */
+}
 
 
 /* Loading  */

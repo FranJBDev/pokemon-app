@@ -6,16 +6,16 @@ export default function Card({ props }) {
     return (
         <div className={style.container}>
             <div className={style.card + ' ' + style.bounce}>
-                <span>{name.charAt(0).toUpperCase() + name.slice(1)}</span> {
+                <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2> {
                 /* '~\b([a-z])~'
   */}
                 <img className={style.img} src={img} width='200px' alt="Img not found" height="190px" />
 
                 <div  > {/*Types*/}
                     {
-                        types ? types.map(el => {
+                        types ? types.map((el, i) => {
                             return (
-                                <span>{el}</span>
+                                <span>{el + (i !== types.length - 1 ? ' - ' : '')}</span>
                             )
                         }
                         ) :

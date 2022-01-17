@@ -59,7 +59,7 @@ export default function Home() {
 
     return (<>
         <Navbar />
-        <div><select onChange={e => handleSort(e)}>
+        <div className={style.sortfilter}><select onChange={e => handleSort(e)}>
             {sortOpt.map(el => {
                 return (<option value={el.value}>{el.text}</option>)
             })}

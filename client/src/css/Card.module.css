@@ -1,17 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+h2{
+  font-family: 'Mochiy Pop P One', sans-serif;  
+}
+span{
+  font-family: 'Mochiy Pop P One', sans-serif;  
+}
 
 .container{
-  border-bottom: 2px solid #000000;
+  /* border-bottom: 2px solid #000000; */
+
+  /* border-style: solid; */
   display: flex;
-  height: 250px;
-  width: 320px;
+  height: 300px;
+  width: 220px;
 }
 
 .card {
-  border: 2px;
+  border-style: solid;
+  border: 1px;
   align-self: flex-end;
-  width: 320px;
-  height: 250px;
+  width: 240px;
+  height: 300px;
   background: orange;
   animation-duration: .5s;
   animation-iteration-count: infinite;

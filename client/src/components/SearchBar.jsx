@@ -26,7 +26,7 @@ export default function SearchBar() {
                 <input
                     className={style.searchInput}
                     type="text"
-                    placeholder="Search Pokemon..."
+                    placeholder="Search by name..."
                     value={name}
                     onChange={(e) => handleInputChange(e)}
                 />

@@ -1,4 +1,6 @@
 /* Button Style */
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
 .button {
     transform: translate(-50%, -50%);
     width: 150px;
@@ -6,10 +8,10 @@
     text-align: center;
     line-height: 50px;
     color: rgb(5, 0, 0);
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
     text-decoration: none;
-    font-family: sans-serif;
+    font-family: 'Mochiy Pop P One', sans-serif;  
     box-sizing: border-box;
     background: linear-gradient(90deg, yellow, orange, red, violet, purple, blue, yellow);
     background-size: 400%;

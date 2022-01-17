@@ -3,8 +3,36 @@
 
 p{
   font-family: 'Mochiy Pop P One', sans-serif;
+  color: orange;
+  
 }
 
 h1{
   font-family: 'Mochiy Pop P One', sans-serif;
+  color: rgb(51, 1, 51);
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+}
+
+div{
+
+  /* border-style: solid; */
+  padding: 15px;
+}
+
+img {
+  display:block;
+  margin:auto;
+  grid-column: x0 / x2;
+  grid-row: y1/y2;
+  max-width: 80%;
+  /* background-color: orange; */
+} 
+
+.frame{
+  /* background-color: rgb(224, 186, 113);
+  width: 80%; */
 }
