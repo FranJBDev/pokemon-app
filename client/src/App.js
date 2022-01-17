@@ -1,22 +1,22 @@
 import './css/App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import LandingPage from "./components/LandingPage"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Landing from "./components/Landing"
 import Home from './components/Home';
-import PokemonCreate from './components/PokemonCreate'
+import Create from './components/Create'
 import Detail from './components/Detail'
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Home} />
-          <Route path="/pokemons" component={PokemonCreate} />
+          <Route path="/pokemons" component={Create} />
           <Route exact path="/home/:id" component={Detail} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

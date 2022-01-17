@@ -20,6 +20,7 @@ export default function Home() {
 
     const pokLoaded = all.length ? true : false
     const [orden, setOrden] = useState('')
+    const [isPlaying, setIsPLaying] = useState(false)
     useSelector(s => s.order)
 
     const currP = allPokemons.slice(currentPage * itemsPerPage - itemsPerPage, currentPage * itemsPerPage)
@@ -33,12 +34,7 @@ export default function Home() {
         { value: "LAttack", text: 'Ascendant Attack' }
     ]
 
-    // const player = document.getElementById("mp3")
-    // player.play();
-
     useEffect(() => {
-
-        //dispatch(removeDetail());
         dispatch(getTypes());
         if (!pokLoaded) {
             dispatch(getPokemons());

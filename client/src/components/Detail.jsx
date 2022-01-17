@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../redux/actions';
 import loading from '../assets/cargando.gif'
-import style from '../css/Detail.module.css'
+import css from '../css/Button.module.css'
+import pos from '../css/Positions.module.css'
 
 export default function Detail(props) {
 
@@ -18,7 +19,7 @@ export default function Detail(props) {
     return (
         <div>{
             P.length && P[0].id == props.match.params.id ? <div >
-                <Link to='/home'><button >Back</button></Link>
+                <Link to='/home'><button className={css.button + ' ' + pos.a}>Back</button></Link>
                 <h1>{P[0].id} - {P[0].name.charAt(0).toUpperCase() + P[0].name.slice(1)}</h1>
 
                 <div>

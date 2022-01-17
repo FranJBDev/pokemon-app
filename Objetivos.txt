@@ -32,25 +32,25 @@ Nombre
 Diferenciar los pokes de api y los creados, no repetir id
 *****************************************************************
 
-Usar pokeapi:
+[X] Usar pokeapi:
 Únicos Endpoints/Flags que pueden utilizar
 GET https://pokeapi.co/api/v2/pokemon
 GET https://pokeapi.co/api/v2/pokemon/{id}
 GET https://pokeapi.co/api/v2/pokemon/{name}
 GET https://pokeapi.co/api/v2/type
 
-Buscar, filtrar, ordenar y crear pokemons
+[X] Buscar, filtrar, ordenar y crear pokemons
 
-NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados
+[X] NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados
 
-En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend
+[X] En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend
 
-No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
+[X] No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
 
 Paginas:
 Landing: 
-[ ] Alguna imagen de fondo representativa al proyecto
-[ ] Botón para ingresar al home (Ruta principal)
+[X] Alguna imagen de fondo representativa al proyecto
+[X] Botón para ingresar al home (Ruta principal)
 
 Home:
 [ ] Input de busqueda por nombre completo

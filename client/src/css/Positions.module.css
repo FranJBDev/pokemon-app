@@ -1,0 +1,33 @@
+body{
+    background: rgba(248, 246, 250, 0.856);
+  }
+  
+.a{
+    position: absolute; 
+    top: 5%;
+    left: 6%;
+}
+.b{
+    position: absolute; 
+    top: 5%;
+    left: 18%;
+}
+.c{
+    position: absolute; 
+    top: 5%;
+    left: 30%;
+}
+
+.d {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+  }
+
+  .row{
+    position: absolute;
+    left: 70%;
+    top: 3%;
+    display: flex;
+    justify-content: center;
+  }

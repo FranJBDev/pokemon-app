@@ -3,6 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postPokemon, getTypes, getPokemons } from '../redux/actions';
 import validate from './validate.js';
+import css from '../css/Button.module.css'
+import pos from '../css/Positions.module.css'
 
 export default function PokemonCreate() {
     const dispatch = useDispatch();
@@ -81,7 +83,7 @@ export default function PokemonCreate() {
     }
 
     return (
-        <div><Link to='/home'><button>Return</button></Link>
+        <div><Link to='/home'><button className={css.button + ' ' + pos.a}>Return</button></Link>
             <div> <h2>Create pokemon</h2>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <label>Name</label><input
