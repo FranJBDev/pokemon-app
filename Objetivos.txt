@@ -53,20 +53,20 @@ Landing:
 [X] Botón para ingresar al home (Ruta principal)
 
 Home:
-[ ] Input de busqueda por nombre completo
-[ ] Area para mostrar pokemons desde GET /pokemons (usar subrequest de next, limitar a 40 pokemons) y mostrar:
+[X] Input de busqueda por nombre completo
+[X] Area para mostrar pokemons desde GET /pokemons (usar subrequest de next, limitar a 40 pokemons) y mostrar:
 	imagen, nombre y tipos
-[ ] Botones/opciones para filtrar por tipo y por pokemon existente o creado por nosotros
-[ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los pokemons por orden alfabético y por fuerza
+[X] Botones/opciones para filtrar por tipo y por pokemon existente o creado por nosotros
+[X] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los pokemons por orden alfabético y por fuerza
 
-[ ] Paginado para ir buscando y mostrando los siguientes pokemons, 12 pokemons por pagina.
+[X] Paginado para ir buscando y mostrando los siguientes pokemons, 12 pokemons por pagina.
 
 Detalle: 
-[ ] Campos imagen, nombre, tipos, id, estadisticas (vida, fuerza, defensa, velocidad, altura y peso.
+[X] Campos imagen, nombre, tipos, id, estadisticas (vida, fuerza, defensa, velocidad, altura y peso.
 
 Creacion: 
 [ ] form controlado por js con los campos de detalle
-[ ] poder seleccionar agregar mas de un tipo
+[X] poder seleccionar agregar mas de un tipo
 [ ] Validar campos
 
 *********************************************************

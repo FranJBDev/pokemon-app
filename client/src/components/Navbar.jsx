@@ -31,7 +31,7 @@ export default function Navbar() {
 
             <Pages itemsPerPage={itemsPerPage}
                 allPokemons={allPokemons.length}
-                page={currentPage}
+                currPage={currentPage}
             />
         </nav>
     );

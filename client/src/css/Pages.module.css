@@ -54,9 +54,3 @@
   opacity: 1;
   animation: animate 8s linear infinite;
 }
-
-
-.pagination{
-    display: flex;
-    justify-content: center;
-}

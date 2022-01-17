@@ -5,6 +5,7 @@ import { getDetail } from '../redux/actions';
 import loading from '../assets/cargando.gif'
 import css from '../css/Button.module.css'
 import pos from '../css/Positions.module.css'
+import style from '../css/Detail.module.css'
 
 export default function Detail(props) {
 
@@ -26,9 +27,13 @@ export default function Detail(props) {
                     <img src={P[0].img2} alt='Not Found' />
                     <div>
                         <h1>Types</h1>
-                        <span >{P[0].types ? P[0].types.map(el => { return (el + ', ') }
-                        ) : <span>Types not found</span>
-                        }</span>
+                        <p >{P[0].types ? P[0].types.map(el => {
+                            return (
+                                <p key={el}>{el}</p>
+                            )
+                        }
+                        ) : <p>Types not found</p>
+                        }</p>
 
                     </div>
                 </div>
@@ -37,55 +42,56 @@ export default function Detail(props) {
                     <div>
                         <h1>Abilities</h1>
                         <div>
-                            <span> {P[0].abilities.length ? P[0].abilities.map(el => {
+                            <> {P[0].abilities.length ? P[0].abilities.map((el, i) => {
+
                                 return (
-                                    <span key={el}>{el + ', '}</span>
+                                    <p key={el}>{el}</p>
                                 )
                             }) :
-                                <span>This pokemon has no abilities</span>
-                            }</span>
+                                <p>This pokemon has no abilities</p>
+                            }</>
                             <div>
 
                             </div>
-                            <div>
+                            {/* <div>
                                 <h1>Moves</h1>
-                                <span> {P[0].moves.length ? P[0].moves.map(el => {
+                                <p> {P[0].moves.length ? P[0].moves.map(el => {
                                     return (
-                                        <span key={el}> {el + ', '}</span>
+                                        <p key={el}> {el + ', '}</p>
                                     )
                                 }) :
-                                    <span>This pokemon has no moves</span>
-                                }</span>
+                                    <p>This pokemon has no moves</p>
+                                }</p>
 
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     :
-                    <div>This pokemon has no Data</div>
+                    <p>This pokemon has no Data</p>
                 }
 
                 <div><h1>Stats</h1>
-                    <div><span>Base Experience: {P[0].base_experience}</span></div>
-                    <div><span>Order: {P[0].order}</span></div>
-                    <div><span>Hp: {P[0].hp}</span></div>
+                    {/* <div><p>Base Experience: {P[0].base_experience}</p></div>
+                    <div><p>Order: {P[0].order}</p></div> */}
+                    <div><p>Hp: {P[0].hp}</p></div>
                     <div>
-                        <span> Attack: {P[0].attack}</span>
+                        <p> Attack: {P[0].attack}</p>
                     </div>
                     <div>
                         <div>
-                            <span>Defense: {P[0].defense}</span>
+                            <p>Defense: {P[0].defense}</p>
                         </div>
 
                     </div>
                     <div>
-                        <span>Speed: {P[0].speed}</span>
+                        <p>Speed: {P[0].speed}</p>
                     </div>
                     <div>
-                        <span>Weight: {P[0].weight / 10}kg</span>
+                        <p>Weight: {P[0].weight / 10}kg</p>
 
                     </div>
                     <div>
-                        <span>Height: {P[0].height / 10}m</span>
+                        <p>Height: {P[0].height / 10}m</p>
                     </div>
                 </div>
             </div> :

@@ -9,7 +9,7 @@ import pos from '../css/Positions.module.css'
 export default function PokemonCreate() {
     const dispatch = useDispatch();
     const types = useSelector(state => state.types)
-    const pokemons = useSelector(state => state.allPokemons.map(pok => pok.name))
+    const pokemons = useSelector(state => state.allPokemons.map(p => p.name))
     const history = useHistory()
 
     const [errors, setErrors] = useState({})
@@ -160,7 +160,7 @@ export default function PokemonCreate() {
                         />
                         {errors.speed ? (
                             <div>
-                                <i ></i>
+                                <i></i>
                                 <p>{errors.speed}</p>
                             </div>
                         ) :

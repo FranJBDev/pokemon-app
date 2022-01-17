@@ -1,17 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
 
-.show{
-  display: block;
-}
-.hide{
-  display: none;
+
+p{
+  font-family: 'Mochiy Pop P One', sans-serif;
 }
 
-.active{
-  filter: opacity(100%);
-  transition: all 0.2s ease;
+h1{
+  font-family: 'Mochiy Pop P One', sans-serif;
 }
-.noactive{
-  filter: opacity(50%);
-}
-
