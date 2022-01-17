@@ -1,102 +1,92 @@
 const axios = require('axios');
 const { Pokemon, Type } = require('../db') // importamos modelos
 
-const getApiDataWithNext = async (url) => {
+
+// No borrar 
+
+const get40Urls = async () => {
+    // El readme dice que no debemos usar este:
+    // const apiUrl = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=40");
+    // const results = apiUrl.data.results
+
     let first20 = await axios.get('https://pokeapi.co/api/v2/pokemon')
     let next20 = await axios.get(first20.data.next)
 
     first20 = first20.data.results
     next20 = next20.data.results
 
-    // console.log(first20, next20)
-
-    let urls = first20.concat(next20)
-
-    // Agregar las demas propiedades a los pokemons
-    urls = urls.map((e) => (
+    let urls = [...first20, ...next20].map((e) => (
         { id: e.url.split('/')[6], url: e.url }
+        // 'https://pokeapi.co/api/v2/pokemon/id'
     ))
 
     return await Promise.all(
         urls.map(async e => {
-            return await getByIdOrName(e.id)
-
+            return await getApiInfo(e.id)
         })
     )
 }
 
-const getApiData = async (offset, limit) => {
-    let urls = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
-
-    // Agregar las demas propiedades a los pokemons
-    urls = urls.data.results.map((e) => (
-        { id: e.url.split('/')[6], url: e.url }
-    ))
-
-    return await Promise.all(
-        urls.map(async e => {
-            return await getByIdOrName(e.id)
-
-        })
-    )
+const getfirst40Pokes = async () => {
+    let arr = [];
+    for (let i = 1; i < 41; i++) arr.push(i) // Creo un array y le pusheo del 1 al 40
+    return await Promise.all(arr.map(async (i) => await getApiInfo(i)))
 }
 
-const getDbInfo = async () => ( // Obtenemos la info de la bd
-    (await Pokemon.findAll({ // Todos los pokemons con su tipo relacionado
+async function getApiInfo(arg) { // Busca por id o nombre
+    let info = await axios.get(`https://pokeapi.co/api/v2/pokemon/${arg}/`);
+    let p = info.data;
+
+    return {
+        id: p.id,
+        name: p.name,
+        types: p.types.map((t) => t.type.name),
+        img: p.sprites.other['dream_world'].front_default,
+        img2: p.sprites.other['official-artwork'].front_default,
+        img3: p.sprites.other.home.front_default,
+        attack: p.stats[1].base_stat,
+        weight: p.weight,
+        height: p.height,
+        hp: p.stats[0].base_stat,
+        attack: p.stats[1].base_stat,
+        defense: p.stats[2].base_stat,
+        speed: p.stats[5].base_stat,
+        weight: p.weight,
+        height: p.height,
+        base_experience: p.base_experience,
+        order: p.order,
+        abilities: p.abilities ? p.abilities.map(a => a.ability.name) : null,
+        moves: p.moves ? p.moves.map(m => m.move.name) : null
+    }
+}
+
+const getDbInfo = async () => {
+    const data = (await Pokemon.findAll({
         include: {
             model: Type,
             attributes: ['name'],
             through: {
-                attributes: []
-            },
+                attributes: [],
+            }
         }
-    }))
-    // .map(e => {
-    //     const json = e.toJSON();
-    //     return {
-    //         ...json,
-    //         types: json.types.map(type => type.name)
-    //     }
-    // })
-)
+    })).map(P => {
+        const json = P.toJSON();
+        return {
+            ...json,
+            types: json.types.map(type => type.name)
+        }
+    });
 
-const getTypes = async () => {
-    let types = await axios.get('https://pokeapi.co/api/v2/type')
-
-    return types.data.results
+    return data
 }
 
-const getApiDb = async () => {
-    const apiInfo = await getApiDataWithNext() // getApiData(0, 48)
-    const dbInfo = await getDbInfo()
-    const infoTotal = apiInfo.concat(dbInfo)
+const getAllPokemons = async () => { // Une los pokes de al api y de la BD
+    const apiInfo = await getfirst40Pokes();
+    const dbInfo = await getDbInfo();
+    const infoTotal = [...apiInfo, ...dbInfo];
+    // console.log(infoTotal)
 
-    return infoTotal
+    return infoTotal;
 }
 
-const getByIdOrName = async (arg) => {
-    let results = await axios.get(`https://pokeapi.co/api/v2/pokemon/${arg}/`)
-
-    results = results.data
-
-    return {
-
-        id: results.id,
-        name: results.name,
-        types: results.types.map((t) => t.type.name),
-        img: results.sprites.other['dream_world'].front_default,
-        img2: results.sprites.other['official-artwork'].front_default,
-        img3: results.sprites.other.home.front_default,
-        hp: results.stats[0].base_stat,
-        attack: results.stats[1].base_stat,
-        defense: results.stats[2].base_stat,
-        speed: results.stats[5].base_stat,
-        weight: results.weight,
-        height: results.height,
-        base_experience: results.base_experience,
-        order: results.order,
-        abilities: results.abilities
-    }
-}
-
-module.exports = { getByIdOrName, getApiDb, getTypes } //getApiDb
+module.exports = { getApiInfo, getAllPokemons, getDbInfo } //getApiDb

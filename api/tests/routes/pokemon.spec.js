@@ -11,9 +11,9 @@ const pokemon = {
 
 describe('Pokemon routes', () => {
   before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
+    .catch((err) => {
+      console.error('Unable to connect to the database:', err);
+    }));
 
   beforeEach(() => Pokemon.sync({ force: true })
     .then(() => Pokemon.create(pokemon)));
@@ -24,10 +24,10 @@ describe('Pokemon routes', () => {
       await agent.get('/pokemons').expect(200)
     }).timeout(50000);
 
-    it('should get at least 40 pokes', (done) => { 
-        agent.get('/pokemons')
-        .then( response => response.body)
-        .then( array => {
+    it('should get at least 40 pokes', (done) => {
+      agent.get('/pokemons')
+        .then(response => response.body)
+        .then(array => {
           expect(array.length >= 40).equal(true)
           done();
         })
@@ -37,14 +37,14 @@ describe('Pokemon routes', () => {
   });
 
   describe('GET /pokemons/:idPokemon', () => {
-   it('should get 200', (done) => {
-        agent.get(`/pokemons/25`).expect(200)
+    it('should get 200', (done) => {
+      agent.get(`/pokemons/25`).expect(200)
         .then(() => done())
         .catch(() => done(new Error('Cannot get status 200')));
-   });
+    });
 
     it('should get 404', (done) => {
-       agent.get(`/pokemons/57`).expect(404)
+      agent.get(`/pokemons/2000`).expect(404)
         .then(() => done())
         .catch(() => done(new Error('Cannot get status 400')));
     });
@@ -52,41 +52,42 @@ describe('Pokemon routes', () => {
 
   describe('POST /pokemons', () => {
     it('should create a new pokemon', (done) => {
-        agent.post('/pokemons').send(pokemon).expect(200);
-        done();
+      agent.post('/pokemons').send(pokemon).expect(200);
+      done();
     });
-  
+
   });
 });
 
-describe('Type routes', () => {;
+describe('Type routes', () => {
+  ;
 
   describe('GET /types', () => {
 
     it('should get 200', (done) => {
       agent.get('/types').expect(200)
-      .then(() => done())
-      .catch(() => done(new Error('Cannot get types')));
+        .then(() => done())
+        .catch(() => done(new Error('Cannot get types')));
     });
   });
 
-  it('Should throw an error if name is null', (done) => {
-    Type.create({})
+  it('Should get 404 if Pokemons name is not found', (done) => {
+    agent.get('/pokemons?name=superman').expect(404)
       .then(() => done())
       .catch((err) => done(new Error(err)));
   });
 
   it('Should throw an error if name is repeated', (done) => {
-    Type.create({name: 'fire'})
+    Type.create({ name: 'fire' })
       .then(() => done())
       .catch(() => done(new Error('The name is repeated')));
   });
 
   it('Should work when its a valid name', (done) => {
     Type.findOrCreate({
-      where: {name: 'atomictype'}
+      where: { name: 'atomictype' }
     })
-    .then(() => done())
-    .catch((err) => done(new Error(err)));
+      .then(() => done())
+      .catch((err) => done(new Error(err)));
   });
 });
