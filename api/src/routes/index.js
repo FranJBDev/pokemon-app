@@ -31,7 +31,7 @@ router.get("/pokemons", async (req, res) => {
         el => el.name.toLowerCase() == name.toLowerCase()
       );
 
-console.log
+      console.log
 
       return found.length //Si encontro algo
         ? res.status(200).send(found)
@@ -63,7 +63,10 @@ router.post('/pokemons', async (req, res) => {
   } = req.body;
 
   if (name === null) return res.status(404).send("Error: Name is null")
-  console.log('error',)
+  const pokeName = await Type.findOne({
+    where: { name: name }
+  })
+  if (pokeName) return res.status(404).send("Error: Name is repeated")
 
   const pokemonCreated = await Pokemon.create({
     name, hp, attack, defense, speed, height, weight, img, createdInDb

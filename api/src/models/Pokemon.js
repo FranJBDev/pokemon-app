@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
 
     hp: {
       type: DataTypes.INTEGER,
-      defaultValue: '50'
+      defaultValue: '50',
     },
 
     attack: {
@@ -57,11 +57,16 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: true,
     },
-
   },
     {
       timestamps: false,
       freezeTableName: true,
-    }
-  );
+
+      validate: {
+        func: function () { if (typeof hp !== 'number') throw new Error('Hp is not a number') }
+      }
+    })
+
+
 };
+
