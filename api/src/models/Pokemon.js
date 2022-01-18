@@ -17,6 +17,10 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true
     },
+    img: {
+      type: DataTypes.STRING,
+      defaultValue: ''
+    },
 
     hp: {
       type: DataTypes.INTEGER,
@@ -55,9 +59,9 @@ module.exports = (sequelize) => {
     },
 
   },
-  { 
-    timestamps: false, 
-    freezeTableName: true,
-  }
+    {
+      timestamps: false,
+      freezeTableName: true,
+    }
   );
 };

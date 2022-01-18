@@ -64,7 +64,7 @@ async function getApiInfo(arg) { // Busca por id o nombre
     }
 }
 
-const getDbInfo = async () => {
+const getDbInfo = async (arg) => {
     const data = (await Pokemon.findAll({
         include: {
             model: Type,

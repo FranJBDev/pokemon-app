@@ -26,10 +26,12 @@ router.get("/pokemons", async (req, res) => {
 
     if (data) return res.status(200).send([data]);
     else {
-      const dataDb = await getDbInfo();
+      const dataDb = await getDbInfo(nameOrId);
       const found = dataDb.filter(
         el => el.name.toLowerCase() == name.toLowerCase()
       );
+
+console.log
 
       return found.length //Si encontro algo
         ? res.status(200).send(found)

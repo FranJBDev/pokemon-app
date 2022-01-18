@@ -24,7 +24,7 @@ export default function Detail(props) {
             <div className={style.row}>
                 <div>
                     <h1>{P[0].id} - {P[0].name.charAt(0).toUpperCase() + P[0].name.slice(1)}</h1>
-                    <img src={P[0].img2} alt='Not Found' />
+                    <img src={P[0].img2?P[0].img2:P[0].img} alt='Not Found' />
                 </div>
                 <div>
                     <h1>Types</h1>

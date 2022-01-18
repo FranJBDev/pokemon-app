@@ -30,7 +30,7 @@ img {
   margin:auto;
   grid-column: x0 / x2;
   grid-row: y1/y2;
-  max-width: 80%;
+  max-width: 50%;
   /* background-color: orange; */
 } 
 

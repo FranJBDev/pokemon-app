@@ -16,7 +16,7 @@ export default function PokemonCreate() {
     const [errors, setErrors] = useState({})
 
     const [input, setInput] = useState({
-        name: '', hp: '', attack: '', defense: '',
+        img: '', name: '', hp: '', attack: '', defense: '',
         speed: '', weight: '', height: '', types: [],
     })
 
@@ -26,6 +26,7 @@ export default function PokemonCreate() {
     }, [dispatch]);
 
     function handleChange(e) {
+        console.log('input', input)
         setInput({
             ...input, [e.target.name]: e.target.value.replaceAll(/^\s+/g, "").replaceAll(/\s+/g, " ")
         })
@@ -65,10 +66,12 @@ export default function PokemonCreate() {
         e.preventDefault();
 
         if (Object.keys(errors).length === 0 && input.name.length) {
+            console.log(input, 'Creado')
             dispatch(postPokemon(input));
             dispatch(getPokemons());
             alert("Good job!", "Pokemon created successfuly!", "success");
             setInput({
+                img: '',
                 name: '',
                 hp: '',
                 attack: '',
@@ -186,6 +189,21 @@ export default function PokemonCreate() {
                             <p>{errors.height}</p>
                         ) :
                             input.height.length ? <i>Good</i> : <i>  Empty</i>
+                        }
+
+                    </div>
+                    <div>
+                        <label className={style.label}>Image</label>
+                        <input
+                            type="text"
+                            value={input.img}
+                            name="img"
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {errors.img ? (
+                            <p>{errors.img}</p>
+                        ) :
+                            input.img.length ? <i>Good</i> : <i>  Empty</i>
                         }
 
                     </div>
