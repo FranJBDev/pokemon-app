@@ -34,29 +34,33 @@ const getfirst40Pokes = async () => {
 }
 
 async function getApiInfo(arg) { // Busca por id o nombre
-    let info = await axios.get(`https://pokeapi.co/api/v2/pokemon/${arg}/`);
-    let p = info.data;
+    try {
+        let info = await axios.get(`https://pokeapi.co/api/v2/pokemon/${arg}/`)
+        let p = info.data ? info.data : null;
 
-    return {
-        id: p.id,
-        name: p.name,
-        types: p.types.map((t) => t.type.name),
-        img: p.sprites.other['dream_world'].front_default,
-        img2: p.sprites.other['official-artwork'].front_default,
-        img3: p.sprites.other.home.front_default,
-        attack: p.stats[1].base_stat,
-        weight: p.weight,
-        height: p.height,
-        hp: p.stats[0].base_stat,
-        attack: p.stats[1].base_stat,
-        defense: p.stats[2].base_stat,
-        speed: p.stats[5].base_stat,
-        weight: p.weight,
-        height: p.height,
-        base_experience: p.base_experience,
-        order: p.order,
-        abilities: p.abilities ? p.abilities.map(a => a.ability.name) : null,
-        moves: p.moves ? p.moves.map(m => m.move.name) : null
+        if (p) return {
+            id: p.id,
+            name: p.name,
+            types: p.types.map((t) => t.type.name),
+            img: p.sprites.other['dream_world'].front_default,
+            img2: p.sprites.other['official-artwork'].front_default,
+            img3: p.sprites.other.home.front_default,
+            attack: p.stats[1].base_stat,
+            weight: p.weight,
+            height: p.height,
+            hp: p.stats[0].base_stat,
+            attack: p.stats[1].base_stat,
+            defense: p.stats[2].base_stat,
+            speed: p.stats[5].base_stat,
+            weight: p.weight,
+            height: p.height,
+            base_experience: p.base_experience,
+            order: p.order,
+            abilities: p.abilities ? p.abilities.map(a => a.ability.name) : null,
+            moves: p.moves ? p.moves.map(m => m.move.name) : null
+        }
+    } catch (err) {
+        return null
     }
 }
 

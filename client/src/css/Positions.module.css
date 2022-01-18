@@ -1,7 +1,4 @@
-body{
-    background: rgba(248, 246, 250, 0.856);
-  }
-  
+ 
 .a{
     position: absolute; 
     top: 5%;
@@ -22,7 +19,25 @@ body{
     position: absolute;
     top: 25%;
     left: 50%;
-  }
+}
+
+.e {
+    position: absolute;
+    top: 15%;
+    left: 78%;
+}
+
+.f {
+    position: absolute;
+    top: 15%;
+    left: 90%;
+}
+
+.g {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
 
   .row{
     position: absolute;

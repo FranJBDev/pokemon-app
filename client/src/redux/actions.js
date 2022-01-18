@@ -45,17 +45,31 @@ export function postPokemon(payload) {
 }
 
 export function getOnePokemon(arg) {
+
+    // await axios.get("http://localhost:3001/pokemons?name=" + arg)
+    //     .then(json => {
+    //         if (json.data) {
+    //             return dispatch({
+    //                 type: "GET_POKEMON_NAME",
+    //                 payload: json.data
+    //             })
+    //         }
+    //     }).catch(err => {
+    //         console.log('Error in getOnePokemon()', err)
+    //         alert('Pokemon ' + arg + ' dont exist')
+    //     })
+
+    // with async await
     return async function (dispatch) {
         try {
             const json = await axios.get("http://localhost:3001/pokemons?name=" + arg)
-            // console.log(json.data)
 
             return dispatch({
                 type: "GET_POKEMON_NAME",
                 payload: json.data
             })
         } catch (error) {
-            console.log(error)
+            console.log('cliente error, error')
             return dispatch({
                 type: "GET_POKEMON_NAME",
                 payload: ['Pokemon']

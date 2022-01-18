@@ -6,7 +6,7 @@ export default function Card({ props }) {
     return (
         <div className={style.container}>
             <div className={style.card + ' ' + style.bounce}>
-                <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2> {
+                <h2 className={style.h2}>{name.charAt(0).toUpperCase() + name.slice(1)}</h2> {
                 /* '~\b([a-z])~'
   */}
                 <img className={style.img} src={img} width='200px' alt="Img not found" height="190px" />

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
 
-h2{
+.h2{
   font-family: 'Mochiy Pop P One', sans-serif;  
 }
-span{
+.span{
   font-family: 'Mochiy Pop P One', sans-serif;  
 }
 
@@ -17,6 +17,7 @@ span{
 }
 
 .card {
+  text-align: center;
   border-style: solid;
   border: 1px;
   align-self: flex-end;

@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postPokemon, getTypes, getPokemons } from '../redux/actions';
 import validate from './validate.js';
+import style from '../css/Create.module.css'
 import css from '../css/Button.module.css'
 import pos from '../css/Positions.module.css'
 
@@ -21,6 +22,7 @@ export default function PokemonCreate() {
 
     useEffect(() => {
         dispatch(getTypes());
+        console.log('types', types)
     }, [dispatch]);
 
     function handleChange(e) {
@@ -78,46 +80,44 @@ export default function PokemonCreate() {
             })
             history.push("/home")
         } else {
-            alert("You must choose at least one type!", "", "error");
+            alert("You have errors", "", "error");
         }
     }
 
     return (
-        <div><Link to='/home'><button className={css.button + ' ' + pos.a}>Return</button></Link>
-            <div> <h2>Create pokemon</h2>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <label>Name</label><input
-                        type="text"
-                        value={input.name}
-                        name="name"
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.name ? (
-                        <div>
-                            <p>{errors.name}</p>
-                        </div>
-                    ) : input.name.length ? <i>Good</i> : <i>  Empty</i>
-                    }
+        <>
+            <Link to='/home'><button className={css.button + ' ' + pos.e}>Return</button></Link>
+            {/* <h2 className={style.h2}>Create pokemon</h2> */}
+            <form className={style.container} onSubmit={(e) => handleSubmit(e)}>
+                <div>
                     <div>
-                        <label>Hp</label>
+                        <label className={style.label}>Name</label><input
+                            type="text"
+                            value={input.name}
+                            name="name"
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {errors.name ? (
+                            <p>{errors.name}</p>
+                        ) : input.name.length ? <i>Good</i> : <i>Empty</i>
+                        }
+                    </div>
+                    <div>
+                        <label className={style.label}>Hp</label>
                         <input
                             type="number"
                             value={input.hp}
                             name="hp"
                             onChange={(e) => handleChange(e)}
-
                         />
                         {errors.hp ? (
-                            <div>
-                                <i ></i>
-                                <p>{errors.hp}</p>
-                            </div>
+                            <p>{errors.hp}</p>
                         ) :
                             input.hp.length ? <i>Good</i> : <i>  Empty</i>
                         }
                     </div>
                     <div>
-                        <label>Attack</label>
+                        <label className={style.label}>Attack</label>
                         <input
                             type="number"
                             value={input.attack}
@@ -125,16 +125,13 @@ export default function PokemonCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.attack ? (
-                            <div>
-                                <i></i>
-                                <p>{errors.attack}</p>
-                            </div>
+                            <p>{errors.attack}</p>
                         ) :
                             input.attack.length ? <i>Good</i> : <i>  Empty</i>
                         }
                     </div>
                     <div >
-                        <label>Defense</label>
+                        <label className={style.label}>Defense</label>
                         <input
                             type="number"
                             value={input.defense}
@@ -142,16 +139,14 @@ export default function PokemonCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.defense ? (
-                            <div>
-                                <i ></i>
-                                <p>{errors.defense}</p>
-                            </div>
+                            <p>{errors.defense}</p>
                         ) :
                             input.defense.length ? <i>Good</i> : <i>  Empty</i>
                         }
                     </div>
+                </div><div>
                     <div>
-                        <label>Speed</label>
+                        <label className={style.label}>Speed</label>
                         <input
                             type="number"
                             value={input.speed}
@@ -159,16 +154,13 @@ export default function PokemonCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.speed ? (
-                            <div>
-                                <i></i>
-                                <p>{errors.speed}</p>
-                            </div>
+                            <p>{errors.speed}</p>
                         ) :
                             input.speed.length ? <i>Good</i> : <i>  Empty</i>
                         }
                     </div>
                     <div >
-                        <label>Weight</label>
+                        <label className={style.label}>Weight</label>
                         <input
                             type="number"
                             value={input.weight}
@@ -176,17 +168,14 @@ export default function PokemonCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.weight ? (
-                            <div>
-                                <i></i>
-                                <p>{errors.weight}</p>
-                            </div>
+                            <p>{errors.weight}</p>
                         ) :
                             input.weight.length ? <i>Good</i> : <i>  Empty</i>
 
                         }
                     </div>
                     <div>
-                        <label>Height</label>
+                        <label className={style.label}>Height</label>
                         <input
                             type="number"
                             value={input.height}
@@ -194,47 +183,45 @@ export default function PokemonCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.height ? (
-                            <div>
-                                <p>{errors.height}</p>
-                            </div>
+                            <p>{errors.height}</p>
                         ) :
                             input.height.length ? <i>Good</i> : <i>  Empty</i>
                         }
 
                     </div>
-                    <div>
-                        <span >Choose up to 2 Pokemon types</span>
-
-                        <div>
-                            {types.map(type => (
-                                <label for={type.name}>
-                                    <input
-                                        type="checkbox"
-                                        id={type.name}
-                                        value={type.name}
-                                        onChange={(e) => handleChecked(e)}
-                                    />
-                                    {type.name}
-                                </label>
-                            ))
-                            }
-                        </div>
-
-                        {errors.types ? (
-                            <div >
-                                <i></i>
-                                <span>{errors.types}</span>
-                            </div>
-                        ) :
-                            <i>Select only two</i>
+                </div>
+                <div
+                    className={style.checks}
+                >
+                    <div
+                    // className={pos.d}
+                    >
+                        <h2 align='left'>Choose up to 2 Pokemon types</h2>
+                        {types.map(type => (
+                            <label for={type.name}>
+                                <input
+                                    type="checkbox"
+                                    id={type.name}
+                                    value={type.name}
+                                    onChange={(e) => handleChecked(e)}
+                                />
+                                {type.name}
+                            </label>
+                        ))
                         }
+                        <div>{errors.types ? (
+                            <p>{errors.types}</p>
+                        ) :
+                            <p>Select only two</p>
+                        }</div>
                     </div>
 
-                    <div>
-                        <button type='submit'>Create</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+                </div>
+
+                <div>
+                    <button className={css.button + ' ' + pos.f} type='submit'>Create</button>
+                </div>
+            </form>
+        </>
     )
 }

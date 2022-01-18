@@ -13,8 +13,10 @@ h1{
 }
 
 .row{
+  background-color: white;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 div{

@@ -21,7 +21,7 @@ router.get("/pokemons", async (req, res) => {
 
   const nameOrId = name ? name.toLowerCase() : id ? id : null
 
-  if (nameOrId) { // Si se envio un nombre por query
+  if (nameOrId) { // Si se envio un nombre or id por query
     const data = await getApiInfo(nameOrId);
 
     if (data) return res.status(200).send([data]);
@@ -35,9 +35,8 @@ router.get("/pokemons", async (req, res) => {
         ? res.status(200).send(found)
         : res.status(404).send("Pokemon not found");
     }
-  } else { // Si no enviamos los 40 pokemons
+  } else { // Si no, se envio nombre o id por query, enviamos los 40 pokemons    
     const all = await getAllPokemons();
-
     return res.status(200).send(all);
   }
 });

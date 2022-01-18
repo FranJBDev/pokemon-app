@@ -14,7 +14,6 @@ export default function Navbar() {
     const currentPage = useSelector(s => s.currentPage)
     const itemsPerPage = 12
 
-
     const handleClick = (e => {
         e.preventDefault();
         dispatch(reload());

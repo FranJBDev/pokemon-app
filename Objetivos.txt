@@ -65,30 +65,30 @@ Detalle:
 [X] Campos imagen, nombre, tipos, id, estadisticas (vida, fuerza, defensa, velocidad, altura y peso.
 
 Creacion: 
-[ ] form controlado por js con los campos de detalle
+[X] form controlado por js con los campos de detalle
 [X] poder seleccionar agregar mas de un tipo
-[ ] Validar campos
+[X] Validar campos
 
 *********************************************************
 Backend
 SErver NOde/Express
 
 Rutas:
-[ ] GET /pokemons
+[X] GET /pokemons
 listar pokemons traidos de la api
 solo devolver los datso necesarios para la ruta ppal
-[ ] GET /pokemons/{idPOkemon}
+[X] GET /pokemons/{idPOkemon}
 obtener detalle de un pokemon
 solo traer los datos de detalle
 Que funcione para pokemon existente y para creado
-[ ] GET /pokemons?name="..."
+[X] GET /pokemons?name="..."
 Obtener el que coincida exactamente con el nombre pasado por query
 si no existe mostrar mensaje (en la pagina)
-[ ] GET /types
+[X] GET /types
 obtener todos los tipos de pokemon posibles, guardarlos en la BD y usaarlos desde ahi
 
 Testing:
- ] Al menos tener un componente del frontend con sus tests respectivos
+[ ] ] Al menos tener un componente del frontend con sus tests respectivos
 [ ] Al menos tener una ruta del backend con sus tests respectivos
 [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
 

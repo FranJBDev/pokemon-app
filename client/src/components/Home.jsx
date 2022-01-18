@@ -57,13 +57,14 @@ export default function Home() {
         console.log(orden, order)
     })
 
-    return (<>
+    return (<div>
         <Navbar />
-        <div className={style.sortfilter}><select onChange={e => handleSort(e)}>
-            {sortOpt.map(el => {
-                return (<option value={el.value}>{el.text}</option>)
-            })}
-        </select>
+        <div className={style.sortfilter}>
+            <select onChange={e => handleSort(e)}>
+                {sortOpt.map(el => {
+                    return (<option value={el.value}>{el.text}</option>)
+                })}
+            </select>
             <select onChange={e => handleFilterCreated(e)}>
                 <option value="All">All</option>
                 <option value="Api">API</option>
@@ -83,10 +84,10 @@ export default function Home() {
                 typeof currP[0] === 'object' ?
                     currP.map(el => {
                         return (<Link to={"/home/" + el.id} key={el.id}>
-                            <Card props={el} />
+                            <Card key={el.id} props={el} />
                         </Link>)
                     }) :
-                    <div>
+                    <div className={style.notFound}>
                         <img src={noImage} alt="Pokemon not found" width='200px' />
                         <span>{currP[0]} not found</span>
                     </div>
@@ -95,6 +96,6 @@ export default function Home() {
                 </div>
             }
         </div>
-    </>
+    </div>
     )
 }

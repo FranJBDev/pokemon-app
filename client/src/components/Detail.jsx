@@ -21,7 +21,6 @@ export default function Detail(props) {
         <div className={style.frame}>{P.length && P[0].id == props.match.params.id ? <div >
             <Link to='/home'><button className={css.button + ' ' + pos.a}>Back</button></Link>
 
-
             <div className={style.row}>
                 <div>
                     <h1>{P[0].id} - {P[0].name.charAt(0).toUpperCase() + P[0].name.slice(1)}</h1>
