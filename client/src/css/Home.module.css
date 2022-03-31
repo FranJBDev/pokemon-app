@@ -16,7 +16,7 @@
     padding-top: 4%;  
 }
 
-.sortfilter{
+.sortfilter {
     display: flex;
     justify-content: space-evenly;
     padding-top: 1%;
@@ -27,11 +27,11 @@
     font-family: 'Mochiy Pop P One', sans-serif;  
 }
 
-select {
+select, label{
     cursor: pointer;
     box-shadow: none;
     background: orange;
-    width: 8%;
+    width: 20%;
     height: 4%;
     font-family: 'Mochiy Pop P One', sans-serif;  
     font-size: 0.8em;

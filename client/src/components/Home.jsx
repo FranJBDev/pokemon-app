@@ -27,11 +27,11 @@ export default function Home() {
 
 
     const sortOpt = [
-        { value: "normal", text: 'Normal' },
-        { value: "asc", text: 'A - Z' },
-        { value: "desc", text: 'Z - A' },
-        { value: "HAttack", text: 'Descendant Attack' },
-        { value: "LAttack", text: 'Ascendant Attack' }
+        { value: "normal", text: 'Sort: Normal' },
+        { value: "asc", text: 'Sort by name: A - Z' },
+        { value: "desc", text: 'Sort by name: Z - A' },
+        { value: "HAttack", text: 'Sort by: Descendant Attack' },
+        { value: "LAttack", text: 'Sort by: Ascendant Attack' }
     ]
 
     useEffect(() => {
@@ -59,6 +59,7 @@ export default function Home() {
 
     return (<div>
         <Navbar />
+
         <div className={style.sortfilter}>
             <select onChange={e => handleSort(e)}>
                 {sortOpt.map(el => {
@@ -66,14 +67,14 @@ export default function Home() {
                 })}
             </select>
             <select onChange={e => handleFilterCreated(e)}>
-                <option value="All">All</option>
-                <option value="Api">API</option>
-                <option value="Created">Created</option>
+                <option value="All">Show: All</option>
+                <option value="Api">Show: Only from API</option>
+                <option value="Created">Show: Only from user</option>
             </select>
             <select onChange={e => handleFilterByType(e)}>
-                <option value="All">All types</option>
+                <option value="All">Show all types</option>
                 {types.map(type => (
-                    <option value={type.name} key={type.name}>{type.name}</option>
+                    <option value={type.name} key={type.name}>Show: {type.name} type</option>
                 ))
                 }
             </select>
