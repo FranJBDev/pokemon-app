@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export function getPokemons() {
     return async function (dispatch) {
-        var json = await axios.get("http://localhost:3001/pokemons", {
+        var json = await axios.get("/pokemons", {
 
         })
 
@@ -22,7 +22,7 @@ export function reload() {
 
 export function getTypes() {
     return async function (dispatch) {
-        var info = await axios.get("http://localhost:3001/types", {
+        var info = await axios.get("/types", {
 
         })
 
@@ -35,7 +35,7 @@ export function getTypes() {
 
 export function postPokemon(payload) {
     return async function (dispatch) {
-        const pokemon = await axios.post("http://localhost:3001/pokemons", payload)
+        const pokemon = await axios.post("/pokemons", payload)
 
         return {
             type: "POST_POKEMON",
@@ -46,7 +46,7 @@ export function postPokemon(payload) {
 
 export function getOnePokemon(arg) {
     return function (dispatch) { // with promises
-        axios.get("http://localhost:3001/pokemons?name=" + arg)
+        axios.get("/pokemons?name=" + arg)
             .then(json => {
                 return dispatch({
                     type: "GET_POKEMON_NAME",
@@ -83,7 +83,7 @@ export function getOnePokemon(arg) {
 export function getDetail(id) {
     return async function (dispatch) {
         try {
-            let json = await axios.get("http://localhost:3001/pokemons/" + id);
+            let json = await axios.get("/pokemons/" + id);
 
             return dispatch({
                 type: "GET_DETAILS",
