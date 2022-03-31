@@ -14,7 +14,7 @@ export default function LandingPage() {
 
     return (
         <>
-            <h1 className={style.h1}>Pokemon App</h1>
+            <h1 className={style.h1}>Pokemon App2</h1>
             <Link to='/home'>
                 <button
                     className={css.button + ' ' + pos.d}
