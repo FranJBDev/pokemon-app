@@ -83,7 +83,7 @@ router.post('/pokemons', async (req, res) => {
 
 router.get('/', async (req, res) => {
     res.status(200).send(['Hello Pokemon World'])
-  }
+})
 
 router.get('/pokemons/:idPokemon', async (req, res) => {
   const { idPokemon } = req.params
