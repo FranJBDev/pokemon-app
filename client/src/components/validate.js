@@ -87,10 +87,10 @@ export default function validate(poke, pokemons) {
     }
 
     if (poke.height < 1) {
-        errors.height = 'The height of the Pokemon must be higher than 1 dam'
+        errors.height = 'The height of the Pokemon must be higher than 1' // fixed
     }
     if (poke.height > 80) {
-        errors.height = 'The height of the Pokemon must be less than 80 dam'
+        errors.height = 'The height of the Pokemon must be less than 80'
     }
 
     if (!poke.types.length) {
