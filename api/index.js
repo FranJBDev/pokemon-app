@@ -31,7 +31,7 @@ conn.sync({ force: false }).then(() => {
     console.log(`server listening at ${port}`); // eslint-disable-line no-console
   });
 }).catch(err =>{
-  console.log(err)
+  console.log("Connection Database error: ", err)
   server.listen(port, () => {
     console.log(`server listening at ${port}`); // eslint-disable-line no-console
   })
