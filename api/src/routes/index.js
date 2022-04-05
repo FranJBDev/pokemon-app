@@ -47,13 +47,19 @@ router.get('/types', async (req, res) => {
   const typesApi = await axios.get("https://pokeapi.co/api/v2/type");
   const types = typesApi.data.results;
 
-  types.forEach(el => {
-    Type.findOrCreate({
-      where: { name: el.name }
-    })
-  })
+  // Usin DB
+  // types.forEach(el => {
+  //   Type.findOrCreate({
+  //     where: { name: el.name }
+  //   })
+  // })
 
-  const allTypes = await Type.findAll();
+  // const allTypes = await Type.findAll();
+  // return res.send(allTypes);
+
+  // Without DB
+  const allTypes = types.map(el => ({name: el.name}) )
+
   return res.send(allTypes);
 })
 
