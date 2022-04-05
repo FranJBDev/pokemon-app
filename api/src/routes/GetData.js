@@ -86,9 +86,15 @@ const getDbInfo = async (arg) => {
 
 const getAllPokemons = async () => { // Une los pokes de al api y de la BD
     const apiInfo = await getfirst40Pokes();
+    const dbInfo = []
+    try{    
     const dbInfo = await getDbInfo();
+    } catch (e){
+        console.log("Error getting pokemons data", e)
+        
+    }
+    
     const infoTotal = [...apiInfo, ...dbInfo];
-    // console.log(infoTotal)
 
     return infoTotal;
 }
