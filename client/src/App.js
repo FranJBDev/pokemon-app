@@ -1,11 +1,12 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Landing from "./components/Landing"
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Landing from './components/Landing';
 import Home from './components/Home';
-import Create from './components/Create'
-import Detail from './components/Detail'
-import axios from 'axios'
+import Create from './components/Create';
+import Detail from './components/Detail';
+import axios from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';
+console.log('base url', process.env.REACT_APP_API);
 
 function App() {
   return (
